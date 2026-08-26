@@ -6,14 +6,57 @@
   <title>Gallery</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { min-height: 100%; background: #000; font-family: Arial, Helvetica, sans-serif; }
-    .page { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 40px 20px; }
-    .images { display: flex; gap: 40px; width: 100%; max-width: 1100px; justify-content: center; flex-wrap: wrap; }
-    .tile { flex: 1 1 400px; max-width: 500px; display: block; }
-    .tile img { width: 100%; height: auto; display: block; cursor: pointer; border-radius: 8px; transition: transform 0.2s ease, opacity 0.2s ease; }
+    html, body {
+      height: 100%;
+      overflow: hidden;                /* no scrolling */
+      background: #000;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .page {
+      height: 100dvh;                  /* dvh handles mobile browser chrome */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(12px, 3vh, 32px) 16px;
+      gap: clamp(16px, 5vh, 48px);
+    }
+    .images {
+      display: flex;
+      flex-wrap: nowrap;               /* keep them side by side */
+      align-items: center;
+      justify-content: center;
+      gap: clamp(16px, 4vw, 48px);
+    }
+    .tile {
+      display: block;
+      flex: 0 0 auto;
+      width: clamp(110px, 26vw, 260px);   /* both tiles identical */
+    }
+    .tile img {
+      width: 100%;
+      aspect-ratio: 1 / 1;             /* equal-sized boxes */
+      object-fit: contain;             /* use "cover" to fill instead */
+      display: block;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
     .tile img:hover { transform: scale(1.02); opacity: 0.9; }
-    .text { max-width: 1000px; margin-top: 48px; text-align: center; }
-    .text p { color: #e53935; font-weight: bold; text-transform: uppercase; font-size: clamp(16px, 2.4vw, 26px); line-height: 1.5; margin-bottom: 28px; letter-spacing: 0.5px; }
+    .text {
+      max-width: 1000px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .text p {
+      color: #e53935;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: clamp(12px, 1.8vw, 22px);
+      line-height: 1.4;
+      letter-spacing: 0.5px;
+    }
+    .text p + p { margin-top: clamp(8px, 1.6vh, 20px); }
   </style>
 </head>
 <body>
