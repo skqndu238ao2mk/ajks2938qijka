@@ -8,12 +8,12 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
       height: 100%;
-      overflow: hidden;                /* no scrolling */
+      overflow: hidden;               
       background: #000;
       font-family: Arial, Helvetica, sans-serif;
     }
     .page {
-      height: 100dvh;                  /* dvh handles mobile browser chrome */
+      height: 100dvh;                 
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -23,7 +23,7 @@
     }
     .images {
       display: flex;
-      flex-wrap: nowrap;               /* keep them side by side */
+      flex-wrap: nowrap;              
       align-items: center;
       justify-content: center;
       gap: clamp(16px, 4vw, 48px);
@@ -31,12 +31,12 @@
     .tile {
       display: block;
       flex: 0 0 auto;
-      width: clamp(110px, 26vw, 260px);   /* both tiles identical */
+      width: clamp(110px, 26vw, 260px);  
     }
     .tile img {
       width: 100%;
-      aspect-ratio: 1 / 1;             /* equal-sized boxes */
-      object-fit: contain;             /* use "cover" to fill instead */
+      aspect-ratio: 1 / 1;            
+      object-fit: contain;             
       display: block;
       cursor: pointer;
       border-radius: 8px;
